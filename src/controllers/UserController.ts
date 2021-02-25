@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
-import { UsersRepository } from "../repositories/UserRepository";
+import { UsersRepository } from '../repositories/UserRepository';
 
 class UserController {
   async create(request: Request, response: Response) {
@@ -11,7 +11,7 @@ class UserController {
     const userAlreadyExists = await usersRepository.findOne({
       email,
     });
-    
+
     if (userAlreadyExists) {
       return response.status(400).json({
         error: 'User already exists',
